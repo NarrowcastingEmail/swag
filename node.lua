@@ -1,10 +1,14 @@
 gl.setup(640, 480)
 
 util.resource_loader{
-    "picture.jpg",
+    "lua.png",
+    "shader.frag",
 }
 
 function node.render()
     gl.clear(1,1,1,1)
-    lua:draw(0, 0, 640, 480)
+    shader:use{
+        Effect = math.cos(sys.now()*2)*3
+    }
+    lua:draw(120, 40, 520, 440)
 end
